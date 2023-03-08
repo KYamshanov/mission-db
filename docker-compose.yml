@@ -1,0 +1,21 @@
+#Docker-compose файл для создания контейнера с Бд. Для mission
+
+version: '1.0'
+
+services:
+  mission-postgres:
+    image: postgres:10
+    container_name: 'mission-postgres'
+    environment:
+      POSTGRES_DB: mission-postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: private_password
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+        - ./assets/init_db:/docker-entrypoint-initdb.d
+        - ./assets/db_data/postgres:/var/lib/postgresql/data
+    networks:
+        - mission-database
+networks:
+    mission-database:
+        driver: bridge

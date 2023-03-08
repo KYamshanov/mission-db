@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "docker-compose-up",
+            "name": "run mission db docker",
+            "files": ["docker-compose.yml"],
+        },
+
+    ]
+}
