@@ -15,7 +15,21 @@ services:
         - ./assets/init_db:/docker-entrypoint-initdb.d
         - ./assets/db_data/postgres:/var/lib/postgresql/data
     networks:
-        - mission-database
+        - postgres
+  mongo:
+      image: mongo:6.0.3
+      container_name: 'mongodb'
+      environment:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: password
+          MONGO_INITDB_DATABASE: mission_db
+      volumes:
+          - ./assets/db_data/mongo/db:/data/db
+          - ./assets/db_data/mongo/configdb:/data/configdb
+      networks:
+          - mongo
 networks:
-    mission-database:
+    postgres:
+        driver: bridge
+    mongo:
         driver: bridge
