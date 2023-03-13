@@ -1,2 +1,3 @@
 /assets/db_data/postgres/*
+/assets/db_data/mongo/*
 .idea
