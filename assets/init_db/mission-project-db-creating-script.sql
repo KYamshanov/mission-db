@@ -13,7 +13,7 @@ CREATE TABLE projects
     description TEXT        NOT NULL
 );
 
-CREATE TYPE participants_role AS ENUM ('LEADER');
+CREATE TYPE participants_role AS ENUM ('LEADER', 'MENTOR');
 CREATE TYPE project_stage AS ENUM ('CREATED', 'CANCELED', 'PREPARING','RESEARCH', 'DEVELOP', 'FINISHING');
 CREATE TYPE subtasks_stage AS ENUM ('CREATED', 'IN_WORK', 'FINISHED');
 
